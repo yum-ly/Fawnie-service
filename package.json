@@ -9,7 +9,9 @@
   },
   "scripts": {},
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "react": "^16.8.6",
+    "reactdom": "^2.0.0"
   },
   "devDependencies": {
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
