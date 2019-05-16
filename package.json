@@ -10,6 +10,7 @@
   "scripts": {},
   "dependencies": {
     "express": "^4.16.4",
+    "mongo": "^0.1.0",
     "react": "^16.8.6",
     "reactdom": "^2.0.0"
   },
