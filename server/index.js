@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyparser = require('body-parser');
-//const db = require('../database/index');
+const db = require('../database/index');
 let app = express();
 
 app.use(bodyparser.json());
@@ -24,9 +24,17 @@ app.post('/', function (req,res) {
     // }
 });
 
-app.get('/', function(req,res){
-    console.log('get request on express server on path / ');
-    res.send('sucessfull get req in express')
+app.get('/info', function(req,res){
+    console.log('get request on express server on path /info ');
+    //res.send('sucessfull get req in express')
+    db.find({}, (err,data) => {
+        if(err){
+            console.log('error in DB.find function in server get request :',err)
+        } else {
+            console.log(data)
+            res.send(data)
+        }
+    })
 
 });
 
