@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/info');
+mongoose.connect('mongodb://localhost/info', {useNewUrlParser: true});
+const dbdata = require('../data.json')
+const fs = require('fs');
+
+//console.log('data from my data.json file',dbdata)
 
 let Schema = mongoose.Schema;
 
@@ -19,7 +23,7 @@ let infoSchema = new mongoose.Schema ({
         x: Number,
         y: Number
     },
-    phone: Number,
+    phone: String,
     email: String,
     url: String,
     pricing: Number,
@@ -30,16 +34,39 @@ let infoSchema = new mongoose.Schema ({
     serviceScore: Number,
     review: Array,
 })
-
 let Info = mongoose.model('Info', infoSchema);
 
-let save = (data) => {
-    Info.insertMany(data, function(err){
-        if(err){
-            console.log('error in data base save function', err)
-        }
+
+
+const seed = () => { fs.readFile('./data.json', (err, data) => {
+    
+    let parsedata = JSON.parse(data);
+    parsedata.map(e => {
+     
+    const newInfo = new Info(e)
+
+    newInfo.save()
+    .then((response) => {
+    console.log(response);
     })
-}
+    .catch((error) => {
+    console.log(error);
+    })
+    })
+  })
+  }
+  
+  //seed()
+
+
+// let save = (data) => {
+
+//     Info.insertMany(data, function(err){
+//         if(err){
+//             console.log('error in data base save function', err)
+//         }
+//     })
+// }
 
 let find = (obj, cb) => {
     Info.find(obj, function(err, infos){
@@ -51,4 +78,7 @@ let find = (obj, cb) => {
     })
   }
 
-module.exports = {save, find};
+  //save(dbdata);
+// pass data into db with save()
+
+module.exports = {find};
