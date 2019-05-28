@@ -1,13 +1,17 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/info', {useNewUrlParser: true});
 const dbdata = require('../data.json')
 const fs = require('fs');
+const cred = require('./cred.js')
 
 //console.log('data from my data.json file',dbdata)
+
+const uri = `mongodb+srv://${cred.username}:${cred.password}@cluster0-qfpck.mongodb.net/test?retryWrites=true`
+mongoose.connect(uri, {useNewUrlParser: true});
 
 let Schema = mongoose.Schema;
 
 let infoSchema = new mongoose.Schema ({
+    uuid: Number,
     name: String,
     openTimes: { 
         sunday: Array,
