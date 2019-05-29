@@ -1,11 +1,15 @@
 const mongoose = require('mongoose');
 const dbdata = require('../data.json')
 const fs = require('fs');
-const cred = require('./cred.js')
+const cred = require('./cred.js');
+require('dotenv').config();
+
+const mongoUser = process.env.MONGO_USER;
+const mongoPass = process.env.MONGO_PASS;
 
 //console.log('data from my data.json file',dbdata)
 
-const uri = `mongodb+srv://${cred.username}:${cred.password}@cluster0-qfpck.mongodb.net/test?retryWrites=true`
+const uri = `mongodb+srv://${mongoUser}:${mongoPass}@cluster0-qfpck.mongodb.net/test?retryWrites=true`
 mongoose.connect(uri, {useNewUrlParser: true});
 
 let Schema = mongoose.Schema;
@@ -84,5 +88,6 @@ let find = (obj, cb) => {
 
   //save(dbdata);
 // pass data into db with save()
+
 
 module.exports = {find};

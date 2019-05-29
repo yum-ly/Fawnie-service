@@ -24,3 +24,4 @@ coverage
 build/
 database/cred.js
 client/dist
+.env

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyparser = require('body-parser');
 const db = require('../database/index');
@@ -31,7 +32,7 @@ app.get('/info', function(req,res){
         if(err){
             console.log('error in DB.find function in server get request :',err)
         } else {
-            console.log(data)
+            //console.log(data)
             res.send(data)
         }
     })
