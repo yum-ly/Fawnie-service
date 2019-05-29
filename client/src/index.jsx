@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios'
 import NameInfoBar from './NameInfoBar.jsx';
+import OpenTimes from './OpenTimes.jsx';
 
 class App extends React.Component {
     constructor(props){
@@ -17,7 +18,7 @@ class App extends React.Component {
         axios.get('/info')
         .then(response => {
             this.setState({
-                info: response.data[0]
+                info: response.data[5]
               })
             console.log('sucessfull axios client get request with data');
         })
@@ -30,8 +31,8 @@ class App extends React.Component {
     render(){
         return(
             <div>
-                <h1>Hello World</h1>
                 <NameInfoBar info={this.state.info}/>
+                <OpenTimes info={this.state.info}/>
             </div>
         )
     }

@@ -18,7 +18,7 @@ const NameInfoBar = (props) => {
     
     return (
     <div className="box">
-      <div className="title">The {props.info.name}</div>
+      <div className="title">{props.info.name}</div>
       <div>
         <span className="bld">{props.info.bld}</span>  
         <span className="dot"> · </span>
