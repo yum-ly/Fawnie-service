@@ -17,16 +17,16 @@ const NameInfoBar = (props) => {
     }
     
     return (
-    <>
-      <div>{props.info.name}</div>
+    <div className="box">
+      <div className="title">{props.info.name}</div>
       <div>
-        <span> {props.info.bld} </span>  
-        <span> . </span>
-        <span> {props.info.category} </span>  
-        <span> . </span>
-        <span> {dollar} </span>
+        <span className="bld"> {props.info.bld} </span>  
+        <span className="dot"> . </span>
+        <span className="category"> {props.info.category} </span>  
+        <span className="dot"> . </span>
+        <span className="dollar"> {dollar} </span>
       </div>
-    </>
+    </div>
     );
 };
 
