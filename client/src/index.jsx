@@ -19,8 +19,8 @@ class App extends React.Component {
             info: {
                 name: '',
                 openTimes: {sunday:[]},
-                styling: {display: 'none'}
-            }
+            },
+            styling: {display: 'none'}
         }
         this.onClickHandler = this.onClickHandler.bind(this)
     }
@@ -50,7 +50,7 @@ class App extends React.Component {
         return(
             <div>
                 <NameInfoBar info={this.state.info}/>
-                <OpenTimes info={this.state.info} onClickHandel={this.onClickHandler}/>
+                <OpenTimes info={this.state.info} onClickHandel={this.onClickHandler} styling={this.state.styling}/>
             </div>
         )
     }
