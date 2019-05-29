@@ -4,14 +4,32 @@ import axios from 'axios'
 import NameInfoBar from './NameInfoBar.jsx';
 import OpenTimes from './OpenTimes.jsx';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faClock } from '@fortawesome/free-solid-svg-icons'
+import {faChevronDown} from '@fortawesome/free-solid-svg-icons'
+
+library.add(faClock)
+library.add(faChevronDown)
+
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             info: {
-                name: ''
+                name: '',
+                openTimes: {sunday:[]},
+                styling: {display: 'none'}
             }
         }
+        this.onClickHandler = this.onClickHandler.bind(this)
+    }
+
+    onClickHandler () {
+        this.setState({
+            styling: {display: 'flex'}
+        })
+
     }
 
     componentDidMount(){
@@ -32,7 +50,7 @@ class App extends React.Component {
         return(
             <div>
                 <NameInfoBar info={this.state.info}/>
-                <OpenTimes info={this.state.info}/>
+                <OpenTimes info={this.state.info} onClickHandel={this.onClickHandler}/>
             </div>
         )
     }
