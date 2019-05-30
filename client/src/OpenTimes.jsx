@@ -5,7 +5,7 @@ const OpenTimes = (props) => {
     
 
     return(
-        <div className="boxTime">
+        <div className="boxTimeOne">
            <div className="openTimes" onClick={props.onClickHandel}> 
             <FontAwesomeIcon icon="clock" /> OPEN NOW · {props.info.openTimes.sunday[0]} - 
               {props.info.openTimes.sunday[1]}  <FontAwesomeIcon icon="chevron-down" />

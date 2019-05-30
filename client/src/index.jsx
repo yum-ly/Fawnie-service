@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios'
+import { GoogleMap, LoadScript } from '@react-google-maps/api'
 import NameInfoBar from './NameInfoBar.jsx';
 import OpenTimes from './OpenTimes.jsx';
 import Contacts from './Contacts.jsx';
+import Map from './Map.jsx';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -29,7 +31,11 @@ class App extends React.Component {
                 address: '',
                 phone: '',
                 email: '',
-                url: ''
+                url: '',
+                GPS: {
+                    x: "",
+                    y: ""
+                },
             },
             styling: {display: 'none'},
             isClicked: false
@@ -71,6 +77,7 @@ class App extends React.Component {
                 <NameInfoBar info={this.state.info}/>
                 <OpenTimes info={this.state.info} onClickHandel={this.onClickHandler} styling={this.state.styling}/>
                 <Contacts info={this.state.info} />
+                <Map info={this.state.info}/>
             </div>
         )
     }

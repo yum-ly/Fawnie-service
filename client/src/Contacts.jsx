@@ -5,7 +5,7 @@ const Contacts = (props) => {
 
 
     return(
-        <div className="boxTime2">
+        <div className="boxTimeTwo">
             <div className="contacts">
             <div className="address"><FontAwesomeIcon icon="map-marker-alt" />  {props.info.address}</div>
             <div className="phone"><FontAwesomeIcon icon="phone" />  {props.info.phone}</div>
