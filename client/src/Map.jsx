@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 
 
-
+const apiKey = process.env.API_KEY;
 
 
 const Map = (props) => {
@@ -14,14 +14,14 @@ const Map = (props) => {
         <div className="boxTimeThree">
         <LoadScript
           id="script-loader"
-          googleMapsApiKey='AIzaSyBHC7zgSq4ktthalaz7n-nzmEUqKZGzLsI'
+          googleMapsApiKey={apiKey}
          
         >
           <GoogleMap
             id='example-map'
             mapContainerStyle={{
-                height: '300px',
-                width: '300px'
+                height: '400px',
+                width: '400px'
               }}
               zoom={16}
               center={{
