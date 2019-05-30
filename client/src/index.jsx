@@ -20,16 +20,24 @@ class App extends React.Component {
                 name: '',
                 openTimes: {sunday:[]},
             },
-            styling: {display: 'none'}
+            styling: {display: 'none'},
+            isClicked: false
         }
         this.onClickHandler = this.onClickHandler.bind(this)
     }
 
     onClickHandler () {
-        this.setState({
-            styling: {display: 'flex'}
-        })
-
+        if(this.state.isClicked === false) {
+            this.setState({
+                styling: {display: 'flex'},
+                isClicked: true
+            })
+        } else {
+            this.setState({
+                styling: {display: 'none'},
+                isClicked: false
+            })
+        }
     }
 
     componentDidMount(){
