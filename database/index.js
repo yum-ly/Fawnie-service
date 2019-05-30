@@ -24,7 +24,7 @@ let infoSchema = new mongoose.Schema ({
         wednesday: Array,
         thursday: Array,
         friday: Array,
-        saterday: Array
+        saturday: Array
     },
     address: String,
     GPS: {

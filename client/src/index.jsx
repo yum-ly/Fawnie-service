@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom';
 import axios from 'axios'
 import NameInfoBar from './NameInfoBar.jsx';
 import OpenTimes from './OpenTimes.jsx';
+import Contacts from './Contacts.jsx';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-solid-svg-icons'
-import {faChevronDown} from '@fortawesome/free-solid-svg-icons'
+import { faClock, faChevronDown, faMapMarkerAlt, faPhone, faEnvelopeSquare, faWindowMaximize, faDirections } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faClock)
-library.add(faChevronDown)
+library.add(faClock,faChevronDown,faMapMarkerAlt,faPhone, faEnvelopeSquare, faWindowMaximize, faDirections)
 
 class App extends React.Component {
     constructor(props){
@@ -18,7 +17,19 @@ class App extends React.Component {
         this.state = {
             info: {
                 name: '',
-                openTimes: {sunday:[]},
+                openTimes: {
+                    monday:[],
+                    tuesday:[],
+                    wednesday:[],
+                    thursday: [], 
+                    friday:[], 
+                    saterday:[],
+                    sunday: []
+                },
+                address: '',
+                phone: '',
+                email: '',
+                url: ''
             },
             styling: {display: 'none'},
             isClicked: false
@@ -59,6 +70,7 @@ class App extends React.Component {
             <div>
                 <NameInfoBar info={this.state.info}/>
                 <OpenTimes info={this.state.info} onClickHandel={this.onClickHandler} styling={this.state.styling}/>
+                <Contacts info={this.state.info} />
             </div>
         )
     }
