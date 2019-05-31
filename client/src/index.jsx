@@ -38,7 +38,8 @@ class App extends React.Component {
                 },
             },
             styling: {display: 'none'},
-            isClicked: false
+            isClicked: false,
+            size: 0,
         }
         this.onClickHandler = this.onClickHandler.bind(this)
     }
@@ -47,12 +48,14 @@ class App extends React.Component {
         if(this.state.isClicked === false) {
             this.setState({
                 styling: {display: 'flex'},
-                isClicked: true
+                isClicked: true,
+                size: 150
             })
         } else {
             this.setState({
                 styling: {display: 'none'},
-                isClicked: false
+                isClicked: false,
+                size: 0
             })
         }
     }
@@ -76,8 +79,8 @@ class App extends React.Component {
             <div>
                 <NameInfoBar info={this.state.info}/>
                 <OpenTimes info={this.state.info} onClickHandel={this.onClickHandler} styling={this.state.styling}/>
-                <Contacts info={this.state.info} />
-                <Map info={this.state.info}/>
+                <Contacts info={this.state.info} size={this.state.size} />
+                <Map info={this.state.info} size={this.state.size}/>
             </div>
         )
     }

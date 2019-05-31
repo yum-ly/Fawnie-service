@@ -8,10 +8,14 @@ const apiKey = process.env.API_KEY;
 
 const Map = (props) => {
     console.log(props.info.GPS.x, 'x coordinates')
+
+    const divStyle = {
+        top: 250 + props.size
+    }
    
     
     return (
-        <div className="boxTimeThree">
+        <div className="boxTimeThree" style={divStyle}>
         <LoadScript
           id="script-loader"
           googleMapsApiKey={apiKey}
@@ -25,9 +29,10 @@ const Map = (props) => {
               }}
               zoom={16}
               center={{
-                lat: 30.266926,
-                lng: -97.750519
+                lat: 30.265824,
+                lng: -97.74926
               }}
+              
            
           >
            
