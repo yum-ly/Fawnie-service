@@ -76,12 +76,13 @@ const seed = () => { fs.readFile('./data.json', (err, data) => {
 //     })
 // }
 
-let find = (obj, cb) => {
-    Info.find(obj, function(err, infos){
+let findData = (obj, cb) => {
+    Info.findOne(obj, function(err, infos){
       if(err){
         console.log(err)
       } else {
       cb(null,infos)
+     // console.log('db infos', infos)
       }
     })
   }
@@ -90,4 +91,4 @@ let find = (obj, cb) => {
 // pass data into db with save()
 
 
-module.exports = {find};
+module.exports = {findData};

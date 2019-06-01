@@ -1,6 +1,8 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const NameInfoBar = (props) => {
+
 
     let dollar = '';
 
@@ -17,14 +19,78 @@ const NameInfoBar = (props) => {
     }
     
     return (
-    <div className="boxTitle">
-      <div className="title">{props.info.name}</div>
+    <div className="boxTitleInfo">
+      <div className="titleInfo">{props.info.name}</div>
       <div>
-        <span className="bld">{props.info.bld}</span>  
-        <span className="dot"> · </span>
-        <span className="category">{props.info.category}</span>  
-        <span className="dot"> · </span>
-        <span className="dollar">{dollar}</span>
+        <span className="bldInfo">{props.info.bld}</span>  
+        <span className="dotInfo"> · </span>
+        <span className="categoryInfo">{props.info.category}</span>  
+        <span className="dotInfo"> · </span>
+        <span className="dollarInfo">{dollar}</span>
+      </div>
+      {/* <div>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+
+          <span> <FontAwesomeIcon icon="yen-sign" className="iconYenInfo" /> </span>
+
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+          <span><FontAwesomeIcon icon="grip-lines" className="iconLineInfo" /></span>
+
+      </div> */}
+      <div className="reviewInfo">
+        <div className="reviewTitleInfo">THE YUM.LY REVIEW</div>
+        <div className="reviewTextInfo">{props.info.review[0].text}</div> 
       </div>
     </div>
     );

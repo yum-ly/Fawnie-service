@@ -7,7 +7,7 @@ const apiKey = process.env.API_KEY;
 
 
 const Map = (props) => {
-    console.log(props.info.GPS.x, 'x coordinates')
+   // console.log(props.info.GPS.x, 'x coordinates')
 
     const divStyle = {
         top: 250 + props.size
@@ -15,7 +15,7 @@ const Map = (props) => {
    
     
     return (
-        <div className="boxTimeThree" style={divStyle}>
+        <div className="boxTimeThreeInfo" style={divStyle}>
         <LoadScript
           id="script-loader"
           googleMapsApiKey={apiKey}

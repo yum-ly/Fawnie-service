@@ -28,9 +28,9 @@ app.post('/', function (req,res) {
 });
 
 app.get('/info', function(req,res){
-    console.log('get request on express server on path /info ');
+    //console.log('get request on express server on path /info ', req.query);
     //res.send('sucessfull get req in express')
-    db.find({}, (err,data) => {
+    db.findData({uuid: req.query.uuid}, (err,data) => {
         if(err){
             console.log('error in DB.find function in server get request :',err)
         } else {

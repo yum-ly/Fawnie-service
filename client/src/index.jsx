@@ -9,15 +9,16 @@ import Map from './Map.jsx';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock, faChevronDown, faMapMarkerAlt, faPhone, faEnvelopeSquare, faWindowMaximize, faDirections } from '@fortawesome/free-solid-svg-icons'
+import { faGripLines,faYenSign, faClock, faChevronDown, faMapMarkerAlt, faPhone, faEnvelopeSquare, faWindowMaximize, faDirections } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faClock,faChevronDown,faMapMarkerAlt,faPhone, faEnvelopeSquare, faWindowMaximize, faDirections)
+library.add(faGripLines, faYenSign, faClock,faChevronDown,faMapMarkerAlt,faPhone, faEnvelopeSquare, faWindowMaximize, faDirections)
 
 class App extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
+        this.state = { 
             info: {
+                uuid: 1,
                 name: '',
                 openTimes: {
                     monday:[],
@@ -25,7 +26,7 @@ class App extends React.Component {
                     wednesday:[],
                     thursday: [], 
                     friday:[], 
-                    saterday:[],
+                    saturday:[],
                     sunday: []
                 },
                 address: '',
@@ -36,6 +37,7 @@ class App extends React.Component {
                     x: "",
                     y: ""
                 },
+                review: [{}],
             },
             styling: {display: 'none'},
             isClicked: false,
@@ -49,7 +51,7 @@ class App extends React.Component {
             this.setState({
                 styling: {display: 'flex'},
                 isClicked: true,
-                size: 150
+                size: 200
             })
         } else {
             this.setState({
@@ -61,22 +63,33 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('http://yumly-env-3.r4x7fui8jw.us-east-2.elasticbeanstalk.com/info')
+        axios.get('http://yumly-env-3.r4x7fui8jw.us-east-2.elasticbeanstalk.com/info', {params: {uuid: this.state.info.uuid}})
         .then(response => {
+            //console.log('sucessfull axios client get request with data',response.data);
+
             this.setState({
-                info: response.data[5]
+                
+                info: response.data
               })
-            console.log('sucessfull axios client get request with data');
         })
         .catch(err => {
             console.log('Axios error in client get request', err)
         });
 
     }
+    componentDidUpdate(prevProps){
+        if (this.props.uuid !== prevProps.uuid) {
+            Axios.post('api'/*'http://YumlyMicroservice-env-2.ynkqtbpzvp.us-east-2.elasticbeanstalk.com/api'*/, {query : this.props.restaurant , type: "data retrieve"})
+               .then(restaurant=>this.setState({currentRestaurant: restaurant.data[0]}, this._triosCreate))
+               .catch((err)=>{console.log(err, "ya borked it!")})
+        }
+    }
+
+    
  
     render(){
         return(
-            <div>
+            <div className="mainInfo">
                 <NameInfoBar info={this.state.info}/>
                 <OpenTimes info={this.state.info} onClickHandel={this.onClickHandler} styling={this.state.styling}/>
                 <Contacts info={this.state.info} size={this.state.size} />
@@ -86,7 +99,7 @@ class App extends React.Component {
     }
 }
 
-// ReactDOM.render(<App/>, document.getElementById('root'));
+//ReactDOM.render(<App/>, document.getElementById('root'));
 window.Info=App;
 
 
