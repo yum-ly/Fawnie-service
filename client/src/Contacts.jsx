@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Contacts = (props) => {
     const divStyle = {
-        top: 50 + props.size
+        top: 40 + props.size
     }
     const spaceStyle = {
         wordSpacing: '30px'

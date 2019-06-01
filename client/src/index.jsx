@@ -61,7 +61,7 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        axios.get('/info')
+        axios.get('http://yumly-env-3.r4x7fui8jw.us-east-2.elasticbeanstalk.com/info')
         .then(response => {
             this.setState({
                 info: response.data[5]
@@ -86,7 +86,7 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'));
-
+// ReactDOM.render(<App/>, document.getElementById('root'));
+window.Info=App;
 
 
