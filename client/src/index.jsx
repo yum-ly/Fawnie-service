@@ -37,7 +37,7 @@ class App extends React.Component {
                     x: "",
                     y: ""
                 },
-                review: [{}],
+                review: [{},{},{}],
             },
             styling: {display: 'none'},
             isClicked: false,
@@ -79,9 +79,16 @@ class App extends React.Component {
     }
     componentDidUpdate(prevProps){
         if (this.props.uuid !== prevProps.uuid) {
-            Axios.post('api'/*'http://YumlyMicroservice-env-2.ynkqtbpzvp.us-east-2.elasticbeanstalk.com/api'*/, {query : this.props.restaurant , type: "data retrieve"})
-               .then(restaurant=>this.setState({currentRestaurant: restaurant.data[0]}, this._triosCreate))
-               .catch((err)=>{console.log(err, "ya borked it!")})
+            axios.get('http://yumly-env-3.r4x7fui8jw.us-east-2.elasticbeanstalk.com/info', {params: {uuid: this.props.uuid}})
+            .then(response => {
+            //console.log('sucessfull axios client get request with data',response.data);
+                this.setState({ 
+                    info: response.data
+                })
+            })
+            .catch(err => {
+                console.log('Axios error in client get request', err)
+            });
         }
     }
 
@@ -99,7 +106,7 @@ class App extends React.Component {
     }
 }
 
-//ReactDOM.render(<App/>, document.getElementById('root'));
+// ReactDOM.render(<App/>, document.getElementById('root'));
 window.Info=App;
 
 
